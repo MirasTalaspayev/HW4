@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentStart">
+
+    <fragment
+        android:id="@+id/fragmentStart"
+        android:name="com.example.hw4.FragmentStart"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_fragmentStart_to_fragmentUsernames"
+            app:destination="@id/fragmentUsernames" />
+        <action
+            android:id="@+id/action_fragmentStart_to_fragmentRecords"
+            app:destination="@id/fragmentRecords" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentUsernames"
+        android:name="com.example.hw4.FragmentUsernames"
+        android:label="fragment_usernames"
+        tools:layout="@layout/fragment_usernames" >
+        <action
+            android:id="@+id/action_fragmentUsernames_to_fragmentGame"
+            app:destination="@id/fragmentGame" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentGame"
+        android:name="com.example.hw4.FragmentGame"
+        android:label="fragment_game"
+        tools:layout="@layout/fragment_game" >
+        <argument
+            android:name="user1"
+            app:argType="string" />
+        <argument
+            android:name="user2"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_fragmentGame_to_fragmentRecords"
+            app:destination="@id/fragmentRecords"/>
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentRecords"
+        android:name="com.example.hw4.FragmentRecords"
+        android:label="fragment_records"
+        tools:layout="@layout/fragment_records" >
+        <argument
+            android:name="winner"
+            app:argType="string" />
+        <argument
+            android:name="winOrlose"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_fragmentRecords_to_fragmentStart"
+            app:destination="@id/fragmentStart" />
+    </fragment>
+</navigation>
